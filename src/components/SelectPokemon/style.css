@@ -1,0 +1,15 @@
+.selectPokemon{
+   
+    appearance: none;
+    border: 1px solid #d5d4d1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: block;
+    outline: none;
+    width: 50%;
+    font-weight: 300;
+    padding: 17px 16px;
+    font-size: .8rem;
+    margin: 1rem auto;
+    font-family: 'Press Start 2P', cursive;
+}

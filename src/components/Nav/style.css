@@ -1,0 +1,10 @@
+.menu{
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ef5350;
+    color: white;
+    height: 100%;
+    padding: 0 5%;
+}

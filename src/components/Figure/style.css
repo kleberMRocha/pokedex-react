@@ -1,0 +1,12 @@
+img{
+    display: block;
+    width: 4%;
+    height: auto;
+    animation: 1s ease-in-out infinite alternate spin;
+}
+
+@keyframes spin{
+    from{
+        transform:  rotate(15deg);
+    }
+ }
