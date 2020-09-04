@@ -4,7 +4,7 @@ import './style.css'
 
 function Figure({image,alt}){
 
-    return(<img className="figure" src={image} alt={alt} />);
+    return(<img className="pokebola" src={image} alt={alt} />);
 
 }
 

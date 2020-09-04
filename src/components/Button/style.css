@@ -1,0 +1,23 @@
+.big{
+text-transform: uppercase;
+font-family: 'Press Start 2P', cursive;
+outline: none;
+cursor: pointer;
+border: 0;
+color: #fff;
+background-color: #ef5350;
+box-shadow: 0 1px 0 rgba(0,0,0,.45);
+align-items: center;
+margin: .25em auto;
+padding: 0 1em;
+line-height: initial;
+width: 60%;
+font-size: 1.1rem;
+min-height: 40px;
+margin-top: 1rem;
+
+}
+
+
+
+

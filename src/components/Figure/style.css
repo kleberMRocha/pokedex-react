@@ -1,7 +1,8 @@
-img{
+.pokebola{
     display: block;
     width: 4%;
     height: auto;
+    padding:.5rem;
     animation: 1s ease-in-out infinite alternate spin;
 }
 

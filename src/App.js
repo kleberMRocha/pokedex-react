@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from 'react';
+
 import SelectPokemon from './components/SelectPokemon';
 import Typography from './components/typography';
 import Nav from './components/Nav';
 import SearchPokemon from './components/Search';
 import Figure from './components/Figure';
-
 import Pokebola from '../src/assets/img/pokemon.svg';
 import Container from './components/Container';
+import Display from './components/display';
+import Button from './components/Button';
 
-console.log(Pokebola);
+
 
 function App() {
 
@@ -20,6 +22,12 @@ function App() {
   },[])
    
   const [pokemon,setPokemon] = useState([]);
+  const [selectedPokemon,SetSelectedPokemon] = useState('Choose a Pokemon!');
+  const [pokemonCount,setPokemonCount] = useState(9);
+
+  function handleShowMore(){
+    setPokemonCount(pokemonCount+3);
+  }
 
   return (
 
@@ -29,10 +37,18 @@ function App() {
          <Typography text="Pokedex ReactJs"/>
          <SearchPokemon />
       </Nav>
-      <Container>
         <form>
-        <SelectPokemon pokemon={pokemon}/>
+          <SelectPokemon 
+          selectedPokemon={selectedPokemon}
+          SetSelectedPokemon={SetSelectedPokemon}
+          pokemon={pokemon}/>
         </form>
+      <Container>
+
+        <Display pokemons={pokemon} pokemonCount={pokemonCount}/>
+
+        <Button variante="big" text="show More" handleclick={handleShowMore}/>
+
       </Container>
 
     </div>
