@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 
-import SelectPokemon from './components/SelectPokemon';
-import Typography from './components/typography';
-import Nav from './components/Nav';
-import SearchPokemon from './components/Search';
-import Figure from './components/Figure';
-import Pokebola from '../src/assets/img/pokemon.svg';
-import Container from './components/Container';
-import Display from './components/display';
-import Button from './components/Button';
-
+import SelectPokemon from '../../components/SelectPokemon';
+import Nav from '../../components/Nav';
+import Container from '../../components/Container';
+import Display from '../../components/display';
+import Button from '../../components/Button';
 
 
 function App() {
@@ -32,11 +27,8 @@ function App() {
   return (
 
     <div className="App">
-      <Nav>
-        <Figure image={Pokebola} alt="Pokebola" />
-         <Typography text="Pokedex ReactJs"/>
-         <SearchPokemon />
-      </Nav>
+      <Nav />
+       
         <form>
           <SelectPokemon 
           selectedPokemon={selectedPokemon}
@@ -44,12 +36,11 @@ function App() {
           pokemon={pokemon}/>
         </form>
       <Container>
-
-        <Display pokemons={pokemon} pokemonCount={pokemonCount}/>
-
-        <Button variante="big" text="show More" handleclick={handleShowMore}/>
-
+        
+      <Display pokemons={pokemon} pokemonCount={pokemonCount}/>
       </Container>
+
+      <Button variante="big" text="show More" handleclick={handleShowMore}/>
 
     </div>
   );

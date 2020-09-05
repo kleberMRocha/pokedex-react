@@ -1,5 +1,13 @@
 
+@keyframes entrace{
+    from{
+        transform:scale(0);
+    }
+}
+
 .display{
+    margin: 1px;
+    animation:.5s ease-in-out entrace ;
     text-transform: uppercase;
     font-family: 'Lexend Peta', sans-serif;
     width: 300px;
@@ -10,6 +18,16 @@
     flex-wrap: wrap;
     background-color: #f1f1f1;
     border-radius: 50px;
+    transition: background-color .5s;
+}.display:hover{
+    background-color: #dbd9d9;
+}
+
+.displayLink{
+    display: flex;
+    align-items: center;
+   justify-content: space-between;
+   margin: 0 20px;
 }
 
 .pokemonImg{
@@ -17,6 +35,9 @@
     margin: 0 auto;
     cursor: pointer;
     padding:.5rem;
+    transition: transform .3s;
+}.pokemonImg:hover{
+    transform: scale(1.2);
 }
 
 .display a{
