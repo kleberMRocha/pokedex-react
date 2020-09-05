@@ -1,0 +1,14 @@
+.pokebola{
+    margin-top: 10%;
+    display: block;
+    width: 15%;
+    height: auto;
+    padding:.5rem;
+    animation: 1s ease-in-out infinite reverse spin;
+}
+
+@keyframes spin{
+    from{
+        transform:  rotate(360deg);
+    }
+ }

@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Nav from '../../components/Nav';
+import Loading from '../../components/Loading';
+import pokebola from '../../assets/img/pokemon.svg';
+import Container from '../../components/Container';
+import Card from '../../components/Card';
 
 function getPokemonUrlName(){
     
@@ -27,9 +31,16 @@ function Pokemon (){
     return(
         <>
             <Nav/> 
-
-            {(!pokemon && 'carregando ... ') || 
-            pokemon.species.name}
+            <Container>
+            {
+            (!pokemon && <Loading image={pokebola} alt="Loading" />) || 
+            
+            <Card pokemon={pokemon}/> 
+     
+                
+            }
+               
+            </Container>
         </>
         )
 

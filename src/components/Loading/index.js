@@ -1,9 +1,17 @@
 import React from 'react';
-import loading from '../../assets/img/loading.svg';
+import PropTypes from 'prop-types';
+import './style.css'
 
+function Loading({image,alt}){
 
-function Loading(){
-    return(<img src={loading} alt="Loading" />)
+    return(<img className="pokebola" src={image} alt={alt} />);
+
 }
+
+Loading.propTypes = {
+    image: PropTypes.string.isRequired,
+    alt: PropTypes.string.isRequired
+}
+
 
 export default Loading;
