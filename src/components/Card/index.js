@@ -1,45 +1,86 @@
-import React from 'react';
-import './style.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import "./style.css";
+import PropTypes from "prop-types";
 
+function Card({ pokemon }) {
+  const pId = [`#00${pokemon.id}`, `#0${pokemon.id}`, `#${pokemon.id}`];
 
-function Card({pokemon}){
+  const background = [
+    { tipo: "normal", color: "#e0ece4" },
+    { tipo: "fighting", color: "#ff8e6e" },
+    { tipo: "flying", color: "#a2d5f2" },
+    { tipo: "poison", color: "#aa96da" },
+    { tipo: "ground", color: "#f8bd7f" },
+    { tipo: "rock", color: "#edcfa9" },
+    { tipo: "bug", color: "#81b214" },
+    { tipo: "ghost", color: "#16213e" },
+    { tipo: "steel", color: "#d8d3cd" },
+    { tipo: "fire", color: "#ea5455" },
+    { tipo: "water", color: "#40a8c4" },
+    { tipo: "grass", color: "#8fc0a9" },
+    { tipo: "electric", color: "#ffcb8e" },
+    { tipo: "psychic", color: "#ffa5b0" },
+    { tipo: "ice", color: "#00bcd4" },
+    { tipo: "dragon", color: "#cedebd" },
+    { tipo: "dark", color: "#1b262c" },
+    { tipo: "fairy", color: "#efbbcf" },
+    { tipo: "unknown", color: "#f7f2e7" },
+  ];
 
-    console.log(pokemon)
-    return(
-        <main className="containerPokemon">
-            <div className="card">
-            
-                <div className="card-text">
+  let currentBackgroundColor = "";
 
-                    <div className="portada"
-                    style={{backgroundImage: `url(https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png)` }} 
-                    ></div>
+  background.forEach((value) => {
+    if (value.tipo === pokemon.types[0].type.name) {
+      return (currentBackgroundColor = value.color);
+    }
+  });
 
-                    <div className="title-total">   
-                    <div className="title">{pokemon.types[0].type.name}</div>
+  console.log(currentBackgroundColor);
 
-                    <h2>{pokemon.name}</h2>
-                
-                <div className="desc">
-                Pokemon
-                
-                </div>
-                    <div className="actions">
-                        <button><i className="far fa-heart">Fav</i></button>
-                        <button><i className="far fa-envelope">Send</i></button>
-                        <button><i className="fas fa-user-friends">Next</i></button>
-                    </div></div>
-                </div>
-            
+  console.log(pokemon);
+  return (
+    <main
+      className="containerPokemon"
+      style={{ backgroundColor: `${currentBackgroundColor}` }}
+    >
+      <div className="card">
+        <div className="card-text">
+          <div className="portada">
+            <img
+              className="portadaImg"
+              src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
+              alt={pokemon.name}
+            />
+          </div>
+
+          <div className="title-total">
+            <div className="title">
+              {pokemon.types[0].type.name}
+              {pokemon.types[1] && ` | ${pokemon.types[1].type.name}`}
             </div>
 
-        </main>
+            <h2>{pokemon.name}</h2>
 
-    )
+            <div className="desc">{pId[pId[0].length - 4]}</div>
+            <div className="actions">
+              <button>
+                <i className="far fa-heart"></i>
+              </button>
+              <button>
+                <i className="fas fa-arrow-left"></i>
+              </button>
+              <button>
+                <i className="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  );
 }
 
 Card.propTypes = {
-    pokemon : PropTypes.object.isRequired,
-}
+  pokemon: PropTypes.object.isRequired,
+};
 export default Card;

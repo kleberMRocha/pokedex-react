@@ -1,7 +1,6 @@
 .containerPokemon{
-    background-color: dimgray;
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     display: flex;
    justify-content: center;
    align-items: center;
@@ -56,10 +55,6 @@ path {
   fill: white;
 }
 
-.img-portada {
-  width: 100%;
-}
-
 .portada {
   width: 100%;
   height: 100%;
@@ -67,4 +62,38 @@ path {
   border-bottom-left-radius: 20px;
   background-size: cover;
   background-position: center;
+}
+.portadaImg{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+
+}
+.actions button {
+margin: 0;
+text-transform: none;
+border: none;
+padding: 8px 16px;
+vertical-align: middle;
+overflow: hidden;
+text-decoration: none;
+text-align: center;
+cursor: pointer;
+white-space: nowrap;
+user-select: none;
+transition: opacity 0s;
+color: #fff;
+background-color: #4CAF50;
+border-left: 1px #353535 solid;
+transition: opacity .2s;
+    
+}
+.actions button:first-child{
+    background-color:gray; 
+    border: none;
+}
+
+.actions button:hover{
+    opacity: .8;
 }

@@ -17,7 +17,7 @@
     flex-direction: column;
     flex-wrap: wrap;
     background-color: #f1f1f1;
-    border-radius: 50px;
+
     transition: background-color .5s;
 }.display:hover{
     background-color: #dbd9d9;
