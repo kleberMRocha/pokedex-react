@@ -4,6 +4,8 @@ import Loading from "../../components/Loading";
 import pokebola from "../../assets/img/pokemon.svg";
 import Card from "../../components/Card";
 import Container from "../../components/Container";
+import Footer from "../../components/footer";
+import Typography from "../../components/typography";
 
 function getPokemonUrlName() {
   let url = window.location.pathname;
@@ -12,25 +14,40 @@ function getPokemonUrlName() {
 }
 
 function Pokemon() {
+  const url = "https://pokeapi.co/api/v2/pokemon?limit=890&offset=0";
+  useEffect(() => {
+    fetch(url)
+      .then((result) => result.json())
+      .then((pokemons) => setPokemonName(pokemons.results));
+  }, []);
+
+  const [pokemonName, setPokemonName] = useState([]);
+
   useEffect(() => {
     const url = `https://pokeapi.co/api/v2/pokemon/${getPokemonUrlName()}`;
-
     fetch(url)
-      .then(async (res) => await res.json())
+      .then(async (res) => {
+        return (
+          (res.ok && (await res.json())) || setError("404 page not found!")
+        );
+      })
       .then(async (res) => await setPokemon(res));
   }, []);
 
   const [pokemon, setPokemon] = useState(0);
+  const [error, setError] = useState("");
 
   return (
     <>
-      <Nav />
-
+      <Nav pokemon={pokemonName} />
+      {error && <Typography text={error} />}
       {(!pokemon && (
         <Container>
           <Loading image={pokebola} alt="Loading" />
         </Container>
       )) || <Card pokemon={pokemon} />}
+
+      <Footer />
     </>
   );
 }

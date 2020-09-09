@@ -6,14 +6,14 @@ import Typography from '../typography';
 import './style.css';
 import { Link } from 'react-router-dom';
 
-function Nav(){
+function Nav({pokemon}){
    
     return(
         <header>
             <nav className="menu">
                 <h2><Link to="/" className="toBack">{'<'}</Link></h2>
                 <Typography text="Pokedex ReactJs"/>
-                <SearchPokemon />
+                <SearchPokemon pokemon={pokemon}/>
             </nav>
         </header>
     )
@@ -21,6 +21,7 @@ function Nav(){
 
 Nav.propTypes = {
     children:PropTypes.array,
+    pokemon:PropTypes.array
 }
 
 

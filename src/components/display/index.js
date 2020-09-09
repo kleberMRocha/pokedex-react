@@ -12,6 +12,7 @@ function Display({pokemons,pokemonCount}){
    <Link  className="displayLink" to={`/pokemon/${pokem.name}`}>
     <img 
       className="pokemonImg" 
+      
       src={`https://pokeres.bastionbot.org/images/pokemon/${index+1}.png`} 
       alt={pokem.name} 
     />

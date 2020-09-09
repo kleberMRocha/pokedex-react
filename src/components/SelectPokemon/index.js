@@ -1,18 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
+import {useHistory} from 'react-router-dom';
 
-function SelectPokemon({pokemon,SetSelectedPokemon,selectedPokemon}){
+function SelectPokemon({pokemon}){
+
+    let history = useHistory();
 
     
     function handlechangePokemon(e){
-        SetSelectedPokemon(e.target.selectedOptions[0].dataset.url);
+
+        history.push(`/pokemon/${e.target.value.toLowerCase()}`);
     }
 
     return(
        <div className="SelectContainer"> 
-        <select value={selectedPokemon} onChange={handlechangePokemon} className="selectPokemon">
-             <option disabled hidden>Choose a Pokemon!</option>
+        <select defaultValue='' onChange={handlechangePokemon} className="selectPokemon">
+             <option  hidden>Choose a Pokemon!</option>
             {pokemon.map((res, index) => {
                 return(
                 <option  data-url={res.url} key={`${res}_${index}`} 
@@ -28,8 +32,6 @@ function SelectPokemon({pokemon,SetSelectedPokemon,selectedPokemon}){
 
 SelectPokemon.propTypes ={
     pokemon:PropTypes.array.isRequired,
-    SetSelectedPokemon:PropTypes.func.isRequired,
-    selectedPokemon:PropTypes.string.isRequired
 
 }
 

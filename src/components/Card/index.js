@@ -1,8 +1,39 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import PropTypes from "prop-types";
+import {useHistory} from "react-router-dom";
 
 function Card({ pokemon }) {
+
+  let history = useHistory(); 
+  
+  
+  function HandleNext(e){
+    history.push(`/pokemon/${e.currentTarget.dataset.current}`);
+    history.go(0)
+  }
+
+
+  let initialValue = (localStorage.getItem(JSON.stringify(pokemon.name)));
+
+  const [favStatus,setFavStatus] = useState(JSON.parse(initialValue));
+  
+
+  useEffect(()=>{
+
+    localStorage.setItem(JSON.stringify(pokemon.name),JSON.stringify(favStatus));
+
+    },[favStatus,pokemon.name])
+
+  function HandleClick(e){
+    
+    setFavStatus(JSON.parse(!favStatus))
+    e.currentTarget.classList.toggle("favorited");
+    
+  }
+
+
+
   const pId = [`#00${pokemon.id}`, `#0${pokemon.id}`, `#${pokemon.id}`];
 
   const background = [
@@ -35,21 +66,21 @@ function Card({ pokemon }) {
     }
   });
 
-  console.log(currentBackgroundColor);
-
-  console.log(pokemon);
   return (
+     
     <main
       className="containerPokemon"
       style={{ backgroundColor: `${currentBackgroundColor}` }}
     >
+         
       <div className="card">
         <div className="card-text">
           <div className="portada">
+      
             <img
               className="portadaImg"
               src={`https://pokeres.bastionbot.org/images/pokemon/${pokemon.id}.png`}
-              alt={pokemon.name}
+              alt={pokemon.name } 
             />
           </div>
 
@@ -63,13 +94,13 @@ function Card({ pokemon }) {
 
             <div className="desc">{pId[pId[0].length - 4]}</div>
             <div className="actions">
-              <button>
+              <button onClick={HandleClick} className={favStatus ? "favorited" : ""}>
                 <i className="far fa-heart"></i>
               </button>
-              <button>
+              <button onClick={HandleNext} data-current={pokemon.id-1}>
                 <i className="fas fa-arrow-left"></i>
               </button>
-              <button>
+              <button onClick={HandleNext} data-current={pokemon.id+1}>
                 <i className="fas fa-arrow-right"></i>
               </button>
             </div>

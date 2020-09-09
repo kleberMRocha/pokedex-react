@@ -6,6 +6,7 @@ import Container from '../../components/Container';
 import Display from '../../components/display';
 import Button from '../../components/Button';
 import Favorites from '../../components/favorites';
+import Footer from '../../components/footer';
 
 
 function App() {
@@ -18,7 +19,6 @@ function App() {
   },[])
    
   const [pokemon,setPokemon] = useState([]);
-  const [selectedPokemon,SetSelectedPokemon] = useState('Choose a Pokemon!');
   const [pokemonCount,setPokemonCount] = useState(30);
 
   function handleShowMore(){
@@ -28,12 +28,10 @@ function App() {
   return (
 
     <div className="App">
-      <Nav />
+      <Nav pokemon={pokemon}/>
  
         <form>
           <SelectPokemon 
-          selectedPokemon={selectedPokemon}
-          SetSelectedPokemon={SetSelectedPokemon}
           pokemon={pokemon}/>
         </form>
         <Favorites />
@@ -44,6 +42,7 @@ function App() {
 
       <Button variante="big" text="show More" handleclick={handleShowMore}/>
 
+      <Footer/>
     </div>
   );
 }
