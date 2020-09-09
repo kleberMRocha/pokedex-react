@@ -20,10 +20,13 @@ function Card({ pokemon }) {
   
 
   useEffect(()=>{
+  
+    localStorage.setItem(
+      JSON.stringify(pokemon.name),JSON.stringify(favStatus)
 
-    localStorage.setItem(JSON.stringify(pokemon.name),JSON.stringify(favStatus));
+      );
 
-    },[favStatus,pokemon.name])
+    },[favStatus,pokemon.name,pokemon.id])
 
   function HandleClick(e){
     
@@ -70,7 +73,8 @@ function Card({ pokemon }) {
      
     <main
       className="containerPokemon"
-      style={{ backgroundColor: `${currentBackgroundColor}` }}
+      style={{ backgroundColor: `${currentBackgroundColor}`,       
+     }}
     >
          
       <div className="card">

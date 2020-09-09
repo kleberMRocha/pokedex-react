@@ -1,0 +1,63 @@
+
+@keyframes entrace{
+    from{
+        transform:scale(0);
+    }
+}
+
+.favBtn{
+    color: white;
+    font-size: 1.5rem;
+    background-color: #ef5350;
+    cursor: pointer;
+    border: none;
+    border-top:#ef5350 1px solid;
+    transition:background-color .5s ;
+}
+.favBtn:hover{
+    background-color: #9c9c9c;
+}
+
+.displayFav{
+    margin: 5px;
+    border:#ef5350 1px solid;
+    animation:.5s ease-in-out entrace ;
+    text-transform: uppercase;
+    font-family: 'Lexend Peta', sans-serif;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    background-color: #f1f1f1;
+
+    transition: background-color .5s;
+}.displayFav:hover{
+    background-color: #dbd9d9;
+}
+
+.displayLink{
+    display: flex;
+    align-items: center;
+   justify-content: space-between;
+   margin: 0 20px;
+}
+
+.pokemonImg{
+    width: 20%;
+    margin: 0 auto;
+    cursor: pointer;
+    padding:.5rem;
+    transition: transform .3s;
+}.pokemonImg:hover{
+    transform: scale(1.2);
+}
+
+.displayFav a{
+  
+    color: black;
+    padding:.5rem;
+}
+
+

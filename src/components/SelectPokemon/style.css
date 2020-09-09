@@ -17,3 +17,10 @@
     margin: 1rem auto;
     font-family: 'Press Start 2P', cursive;
 }
+
+@media (max-width:800px){
+    body{
+        font-size: .6rem;
+    }
+
+}
