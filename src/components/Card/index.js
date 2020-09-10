@@ -115,8 +115,8 @@ function Card({ pokemon }) {
     </main>
     <div  className="containerPokemon">
      
-    {Object.values(pokemon.sprites).splice(0,8).map(sprite => {
-      return(sprite !== null && <img src={sprite} alt={pokemon.name} />)
+    {Object.values(pokemon.sprites).splice(0,8).map((sprite,index) => {
+      return(sprite !== null && <img key={`${pokemon.name}_${index}`} src={sprite} alt={pokemon.name} />)
     })}
     
     
