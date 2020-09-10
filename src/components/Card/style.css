@@ -1,7 +1,8 @@
 .containerPokemon{
-    width: 100%;
+    max-width: 100%;
     height: 50vh;
-    display: flex;
+  display: flex;
+  flex-wrap: wrap;
    justify-content: center;
    align-items: center;
 }

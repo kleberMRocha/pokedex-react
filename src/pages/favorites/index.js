@@ -12,9 +12,9 @@ function Favorites() {
   
   useEffect(()=>{
     fetch(url)
-    .then( result =>  result.json())
-    .then( pokemons =>  setPokemon(pokemons.results))
-  },[])
+    .then(async result => await result.json())
+    .then(async pokemons => await setPokemon(pokemons.results))
+   },[])
    
 const [pokemon,setPokemon] = useState([]);
 
@@ -26,15 +26,14 @@ const clean = pokemonFav.map((isFavorited) =>{
 })
 
 let pokemonFavList = clean.filter((values) => values != null);
-
 let card = pokemon.filter(pokemon => {
     return pokemonFavList.includes(pokemon.name) && pokemon
 });
 
 
 
-
   return (
+    
     <div className="App">
       <Nav pokemon={pokemon}/>
       <Typography text="favorites" />
@@ -60,6 +59,7 @@ let card = pokemon.filter(pokemon => {
             </div>
     
         </Container>
+        <div style={{height:"100vh"}}></div>
       <Footer/>
     </div>
   );

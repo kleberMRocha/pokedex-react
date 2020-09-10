@@ -5,6 +5,7 @@ import {useHistory} from "react-router-dom";
 
 function Card({ pokemon }) {
 
+ 
   let history = useHistory(); 
   
   
@@ -70,7 +71,7 @@ function Card({ pokemon }) {
   });
 
   return (
-     
+     <>
     <main
       className="containerPokemon"
       style={{ backgroundColor: `${currentBackgroundColor}`,       
@@ -112,6 +113,18 @@ function Card({ pokemon }) {
         </div>
       </div>
     </main>
+    <div  className="containerPokemon">
+     
+    {Object.values(pokemon.sprites).splice(0,8).map(sprite => {
+      return(sprite !== null && <img src={sprite} alt={pokemon.name} />)
+    })}
+    
+    
+
+    </div>
+     </>
+
+   
   );
 }
 

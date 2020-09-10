@@ -27,9 +27,7 @@ function SearchPokemon({pokemon}){
     return(
         <form onSubmit={searchPokemon}>
             <div className="formGroup">
-        
-
-                <input list="browsers" 
+                <input  list="browsers" 
                 className="searchInput" 
                 name="browser" id="browser" onChange={handleSearchValue} placeholder="Search Pokemon!" />
 
