@@ -7,6 +7,7 @@
 
 
 .favBtn{
+    width: 100%;
     color: white;
     font-size: 1.5rem;
     background-color: #ef5350;
@@ -29,6 +30,7 @@
     font-family: 'Lexend Peta', sans-serif;
     width: 280px;
     display: flex;
+    flex-direction: column;
     height: 108px;
     justify-content: center;
     flex-direction: column;

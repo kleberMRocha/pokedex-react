@@ -9,16 +9,20 @@ import Favorites from '../../components/favorites';
 import Footer from '../../components/footer';
 
 
-function App() {
 
+function App() {
+  
   const url = 'https://pokeapi.co/api/v2/pokemon?limit=890&offset=0';
   useEffect(()=>{
     fetch(url)
     .then(result =>result.json())
     .then(pokemons => setPokemon(pokemons.results))
   },[])
+
+
    
   const [pokemon,setPokemon] = useState([]);
+
   const [pokemonCount,setPokemonCount] = useState(30);
 
   function handleShowMore(){
