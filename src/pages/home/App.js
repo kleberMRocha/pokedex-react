@@ -41,8 +41,7 @@ function App() {
         </form>
         <Favorites />
       <Container>
-        
-      <Display pokemons={pokemon} pokemonCount={pokemonCount}/>
+            <Display pokemons={pokemon} pokemonCount={pokemonCount}/>
       </Container>
 
       <Button variante="big" text="show More" handleclick={handleShowMore}/>
