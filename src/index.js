@@ -5,6 +5,7 @@ import App from './pages/home/App';
 import Pokemon from './pages/pokemon';
 import Favorites from './pages/favorites';
 
+
 ReactDOM.render(
   <BrowserRouter>
     <Switch>

@@ -10,8 +10,9 @@ import Footer from '../../components/footer';
 
 
 
+
 function App() {
-  
+
   const url = 'https://pokeapi.co/api/v2/pokemon?limit=890&offset=0';
   useEffect(()=>{
     fetch(url)

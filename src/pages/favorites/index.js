@@ -5,7 +5,6 @@ import Container from '../../components/Container';
 import Typography from '../../components/typography';
 import DisplayFav from '../../components/FavoriteCards';
 
-
 function Favorites() {
 
   const url = 'https://pokeapi.co/api/v2/pokemon?limit=890&offset=0';
