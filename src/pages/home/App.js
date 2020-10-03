@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from 'react';
-
+import React, { Suspense, useEffect, useState } from 'react';
 import SelectPokemon from '../../components/SelectPokemon';
 import Nav from '../../components/Nav';
 import Container from '../../components/Container';
-import Display from '../../components/display';
 import Button from '../../components/Button';
 import Favorites from '../../components/favorites';
 import Footer from '../../components/footer';
 
-
-
+const Display = React.lazy(()=> import('../../components/display'));
 
 function App() {
 
-  const url = 'https://pokeapi.co/api/v2/pokemon?limit=890&offset=0';
   useEffect(()=>{
+    const url = 'https://pokeapi.co/api/v2/pokemon?limit=890&offset=0';
     fetch(url)
     .then(result =>result.json())
     .then(pokemons => setPokemon(pokemons.results))
@@ -41,7 +38,10 @@ function App() {
         </form>
         <Favorites />
       <Container>
-            <Display pokemons={pokemon} pokemonCount={pokemonCount}/>
+        <Suspense fallback={<p> Loading ... </p>}>
+          <Display pokemons={pokemon} pokemonCount={pokemonCount}/>
+        </Suspense>
+            
       </Container>
 
       <Button variante="big" text="show More" handleclick={handleShowMore}/>
